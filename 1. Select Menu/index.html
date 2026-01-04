@@ -2,121 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
 <title>Social Media Menu</title>
-
-<style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        font-family: Arial, sans-serif;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        /* Yellow gradient background */
-        background: linear-gradient(135deg, #facc15, #fde047, #fef08a);
-        color: #0f172a;
-    }
-
-    /* Center content */
-    .main {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    /* Menu container */
-    .menu {
-        position: relative;
-        width: 240px;
-    }
-
-    /* Menu button */
-    .menu-btn {
-        background: #0f172a;
-        color: #fff;
-        padding: 14px 16px;
-        cursor: pointer;
-        border-radius: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: background 0.3s, transform 0.2s;
-    }
-
-    .menu-btn:hover {
-        background: #020617;
-        transform: translateY(-2px);
-    }
-
-    /* Dropdown */
-    .dropdown {
-        position: absolute;
-        top: 110%;
-        left: 0;
-        width: 100%;
-        background: #020617;
-        color: #fff;
-        border-radius: 10px;
-        overflow: hidden;
-        display: none;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    }
-
-    .dropdown.active {
-        display: block;
-    }
-
-    /* Menu items */
-    .dropdown div {
-        padding: 12px 16px;
-        cursor: pointer;
-        transition: background 0.3s, transform 0.2s;
-    }
-
-    .dropdown div:hover {
-        background: #1e293b;
-        transform: translateX(6px);
-    }
-
-    /* Selected text */
-    .selected {
-        margin-top: 15px;
-        font-size: 14px;
-        text-align: center;
-        font-weight: 600;
-    }
-
-    /* Arrow */
-    .arrow {
-        transition: transform 0.3s;
-    }
-
-    .rotate {
-        transform: rotate(180deg);
-    }
-
-    /* Footer */
-    footer {
-        background: #0f172a;
-        color: #fef9c3;
-        text-align: center;
-        padding: 14px;
-        font-size: 13px;
-        letter-spacing: 0.5px;
-    }
-
-    footer span {
-        color: #facc15;
-        font-weight: bold;
-    }
-</style>
 </head>
 
 <body>
@@ -146,23 +33,6 @@
     © 2026 <span>Vinay Hulsurkar</span>
 </footer>
 
-<script>
-    const dropdown = document.getElementById("dropdown");
-    const arrow = document.getElementById("arrow");
-    const output = document.getElementById("output");
-
-    function toggleMenu() {
-        dropdown.classList.toggle("active");
-        arrow.classList.toggle("rotate");
-    }
-
-    function selectPlatform(name) {
-        output.textContent = "Selected: " + name;
-        console.log("User selected:", name);
-        dropdown.classList.remove("active");
-        arrow.classList.remove("rotate");
-    }
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
