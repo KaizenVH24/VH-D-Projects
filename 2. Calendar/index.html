@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calendar of Life</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>🧬 Calendar of Life</h1>
+    <p class="base-date">Base Reference Date: <b>01-01-2025</b></p>
+  </header>
+
+  <section class="controls">
+    <div>
+      <label>Date of Birth</label>
+      <input type="date" id="dob" />
+    </div>
+
+    <div class="view-switch">
+      <button onclick="setView('weeks')" class="active">Weeks</button>
+      <button onclick="setView('months')">Months</button>
+      <button onclick="setView('years')">Years</button>
+    </div>
+  </section>
+
+  <section id="stats"></section>
+
+  <main id="life-container"></main>
+
+  <footer>
+    <p>Designed with intent. Built with reality.</p>
+    <p>© 2026 Calendar of Life</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

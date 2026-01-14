@@ -1,0 +1,127 @@
+:root {
+  --bg: #0A2540;
+  --card: #0F2F57;
+  --primary: #0070E0;
+  --secondary: #66B2FF;
+  --lived: #1D4ED8;
+  --current: #38BDF8;
+  --future: #1E293B;
+  --birthday: #FACC15;
+  --text: #E5E7EB;
+  --muted: #94A3B8;
+  --shadow: rgba(0, 112, 224, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ---------- GRID ---------- */
+
+.year-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.year-label {
+  min-width: 65px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.unit-grid {
+  display: grid;
+  gap: 4px;
+}
+
+/* ---------- UNITS ---------- */
+
+.unit {
+  width: 14px;
+  height: 14px;
+  background: var(--future);
+  border-radius: 3px;
+  position: relative;
+  transition: 
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.3s ease;
+}
+
+.unit.lived {
+  background: var(--lived);
+}
+
+.unit.current {
+  background: var(--current);
+  box-shadow: 0 0 10px var(--shadow);
+}
+
+/* ---------- BIRTHDAY MAGIC ---------- */
+
+.unit.birthday {
+  border: 2px solid var(--birthday);
+  animation: birthdayPulse 3s infinite;
+}
+
+@keyframes birthdayPulse {
+  0% { box-shadow: 0 0 0px rgba(250, 204, 21, 0.4); }
+  50% { box-shadow: 0 0 12px rgba(250, 204, 21, 0.9); }
+  100% { box-shadow: 0 0 0px rgba(250, 204, 21, 0.4); }
+}
+
+/* ---------- HOVER ---------- */
+
+.unit:hover {
+  transform: scale(1.25);
+  z-index: 5;
+}
+
+.unit:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 140%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #020617;
+  padding: 6px 10px;
+  font-size: 11px;
+  border-radius: 6px;
+  white-space: nowrap;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* ---------- CONTROLS ---------- */
+
+.view-switch button {
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.view-switch button:hover {
+  transform: translateY(-1px);
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 768px) {
+  .unit {
+    width: 11px;
+    height: 11px;
+  }
+
+  .year-label {
+    min-width: 50px;
+    font-size: 11px;
+  }
+
+  .controls {
+    gap: 20px;
+  }
+}
